@@ -221,7 +221,8 @@ void executeParallelCommands(bool *exit_flag)
 		char *cmd = cmds[i];
 		
 		/* call executeCommand() in a new process */
-		/* ensure that child process doesn't fork */
+
+		// ensure that child process doesn't fork
 		if( getpid() != shell_pid ) return;
 
 		pids[i] = fork();
@@ -335,7 +336,6 @@ void executeCommandPipe(bool *exit_flag) {
 				> execute next command, return if exec fails
 		after loop :
 			return
-
 	*/
 
 	if( cmd_count < 2 ) {

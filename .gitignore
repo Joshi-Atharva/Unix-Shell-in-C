@@ -1,0 +1,17 @@
+# Executables & Build Artifacts
+*.exe
+*.out
+*.o
+myshell
+proc1
+proc2
+proc3
+
+# Personal reference files
+delim.c
+myshell-template.c
+shell.c
+docs/
+
+# Editor files
+Unix-Shell-in-C.code-workspace
