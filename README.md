@@ -1,4 +1,4 @@
-# Custom Shell for Built-in Linux Commands
+# Custom Unix Shell implementation in C using standard POSIX systems interface
 
 ## Overview
 
