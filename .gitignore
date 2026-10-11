@@ -3,15 +3,16 @@
 *.out
 *.o
 myshell
-proc1
-proc2
-proc3
+shell
+
+# Generated Lexer & Parser files
+src/*.tab.c
+src/*.tab.h
+src/*.yy.c
 
 # Personal reference files
-delim.c
-myshell-template.c
-shell.c
 docs/
 
 # Editor files
+.vscode/
 Unix-Shell-in-C.code-workspace

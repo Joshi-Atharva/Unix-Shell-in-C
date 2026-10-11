@@ -4,7 +4,7 @@
 
 This project implements a custom Linux shell that supports execution of built-in commands along with standard system commands. The primary objective of this project is to understand how command-line interpreters work internally, including process creation, command parsing, and interaction with the operating system.
 
-The shell is developed as a systems programming exercise, focusing on core UNIX concepts such as process management, system calls, and command execution.
+The shell is developed as a systems programming exercise, focusing on core UNIX concepts such as process management, Lexers and Parsers, system calls, and command execution.
 
 ---
 
@@ -25,7 +25,10 @@ Custom shells typically replicate behavior of standard shells like `bash` or `sh
 
 ### Prerequisites
 
-- GCC or any standard C compiler
+- GCC or any standard C compiler (`gcc`)
+- Flex (`flex`)
+- Bison (`bison`)
+- GNU Make (`make`)
 - Linux-based operating system (or WSL on Windows)
 
 ---
@@ -33,13 +36,19 @@ Custom shells typically replicate behavior of standard shells like `bash` or `sh
 ### Compilation
 
 ```bash
-./shellMake.sh
-````
+make
+```
 
-or
+or using the build script:
 
 ```bash
-gcc myshell.c -o shell
+./shellMake.sh
+```
+
+To clean build artifacts:
+
+```bash
+make clean
 ```
 
 ---
@@ -47,6 +56,8 @@ gcc myshell.c -o shell
 ### Running the Shell
 
 ```bash
+./myshell
+# or
 ./shell
 ```
 
@@ -69,6 +80,14 @@ Once the shell is running, you can:
   ```
   
 * Use built-in commands implemented within the shell
+* Execute chained pipeline of comamnds with I/O redirection of the form:
+  ```
+  cmd1 | cmd2 | cmd3 < infile > outfile
+  ```
+  for example,
+  ```bash
+  find . | grep -E '\.c' > out.txt
+  ```
 
 The shell reads user input, parses it into tokens, and executes the corresponding command using system calls.
 
